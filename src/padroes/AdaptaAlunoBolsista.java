@@ -9,12 +9,12 @@ package padroes;
 public class AdaptaAlunoBolsista extends AlunoBolsista{
     private Professor professor;
 
-    public AdaptaAlunoBolsista(Professor professor, double valorBolsa, String nome, int matricula, Disciplina[] disciplinas) {
-        super(valorBolsa, nome, matricula, disciplinas);
+    public AdaptaAlunoBolsista(Professor professor, double valorBolsa, int matricula, Disciplina[] disciplinas, String nome, String CPF) {
+        super(valorBolsa, matricula, disciplinas, nome, CPF);
         this.professor = professor;
     }
     
     public double pagarImposto(){
-        return professor.pagaImposto(valorBolsa);
+        return professor.valorDoImposto(valorBolsa);
     }
 }

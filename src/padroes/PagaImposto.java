@@ -6,5 +6,5 @@ Professor: Daves Martins
 package padroes;
 
 public interface PagaImposto {
-    public double pagaImposto(double valorRecebido);
+    public double valorDoImposto(double valorRecebido);
 }

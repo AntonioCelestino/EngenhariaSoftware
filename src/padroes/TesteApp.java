@@ -20,17 +20,33 @@ public class TesteApp {
         did[0] = new Disciplina(65, "matematica");
         did[1] = new Disciplina(70, "historia");
         did[2] = new Disciplina(85, "portugues");
-        Aluno a1 = AlunoFactory.getAluno("Aluno Bolsista", 400, "Ciclano", 654321, dis);
-        Aluno a2 = AlunoFactory.getAluno("Aluno Normal", 0, "Fulano", 123456, did);
+        Aluno a1 = AlunoFactory.getAluno("Aluno Bolsista", 400, 654321, dis, "Ciclano", "444.444.444-44");
+        Aluno a2 = AlunoFactory.getAluno("Aluno Normal", 0, 123456, did, "Fulano", "555.555.555-55");
         alunos[0] = a1;
         alunos[1] = a2;
+        Professor professor = new Professor(12345, 3000, "Jose", "222.222.222-22");
+        AdaptaAlunoBolsista a3 = new AdaptaAlunoBolsista(professor, 1000, 456321, dis, "Beltrano", "666.666.666-66");
         
-        System.out.println("Media disciplinas aluno a1: "+getMedia((Aluno) a1));
-        System.out.println("Media disciplinas aluno a2: "+getMedia((Aluno) a2));
-        System.out.println("a1 é um: "+a1.getTipo());
-        System.out.println("a2 é um: "+a2.getTipo());
+        // testes do FORMAT FACTORY e do INFORMATION EXPERT
+        System.out.println("Media disciplinas "+a1.getNome()+": "+getMedia((Aluno) a1));
+        System.out.println("Media disciplinas "+a2.getNome()+": "+getMedia((Aluno) a2));
+        System.out.println(a1.getNome()+" é um: "+a1.getTipo());
+        System.out.println(a2.getNome()+" é um: "+a2.getTipo());
         System.out.println("Média geral: "+getMediaTodosAlunos(alunos));
-    }    
+        
+        // teste do POLIMORFISMO, onde o método 'funcao' da superclasse Pessoa é sobrescrito nas classes Aluno e Professor.
+        System.out.println(a1.getNome()+" é um: "+ocupacao(a1));
+        System.out.println(a2.getNome()+" é um: "+ocupacao(a2));
+        System.out.println(professor.getNome()+ " é um: " + ocupacao(professor));
+        
+        // teste do ADAPTER, onde um Aluno Bolsista tem seu imposto calculado por um método de Professor.
+        System.out.println(professor.getNome()+" pagará "+ professor.valorDoImposto(professor.getValorSalario())+" de imposto.");
+        System.out.println(a3.getNome()+" pagará "+ a3.pagarImposto()+" de imposto.");
+    }
+    
+    public static String ocupacao(Pessoa p){
+        return p.getFuncao();
+    }
     
     public static double getMedia(Aluno a){
         return a.getMediaDisciplinas();

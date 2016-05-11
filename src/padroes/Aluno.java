@@ -5,24 +5,15 @@ Professor: Daves Martins
  */
 package padroes;
 
-public abstract class Aluno {
-    private String nome;
+public abstract class Aluno extends Pessoa{
     private int matricula;
     private Disciplina[] disciplinas;
-    
-    Aluno(String nome, int matricula, Disciplina[] disciplinas){
-        this.nome = nome;
+
+    public Aluno(int matricula, Disciplina[] disciplinas, String nome, String CPF) {
+        super(nome, CPF);
         this.matricula = matricula;
         this.disciplinas = disciplinas;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    } 
 
     public int getMatricula() {
         return matricula;
@@ -38,6 +29,10 @@ public abstract class Aluno {
 
     public void setDisciplinas(Disciplina[] disciplinas) {
         this.disciplinas = disciplinas;
+    }
+    
+    String getFuncao(){
+        return "Aluno";
     }
     
     public abstract String getTipo();

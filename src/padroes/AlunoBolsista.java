@@ -8,8 +8,8 @@ package padroes;
 public class AlunoBolsista extends Aluno{
     public double valorBolsa;
 
-    public AlunoBolsista(double valorBolsa, String nome, int matricula, Disciplina[] disciplinas) {
-        super(nome, matricula, disciplinas);
+    public AlunoBolsista(double valorBolsa, int matricula, Disciplina[] disciplinas, String nome, String CPF) {
+        super(matricula, disciplinas, nome, CPF);
         this.valorBolsa = valorBolsa;
     }
     

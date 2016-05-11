@@ -6,9 +6,10 @@ Professor: Daves Martins
 package padroes;
 
 public class AlunoNormal extends Aluno{
-    public AlunoNormal(String nome, int matricula, Disciplina[] disciplinas) {
-        super(nome, matricula, disciplinas);
-    }
+    
+    public AlunoNormal(int matricula, Disciplina[] disciplinas, String nome, String CPF) {
+        super(matricula, disciplinas, nome, CPF);
+    }  
     
     @Override
     public String getTipo() {
