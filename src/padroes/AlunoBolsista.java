@@ -7,9 +7,25 @@ package padroes;
 
 public class AlunoBolsista extends Aluno{
     public double valorBolsa;
-    
-    public AlunoBolsista(String nome, int matricula, double valorBolsa) {
-        super(nome, matricula);
+
+    public AlunoBolsista(double valorBolsa, String nome, int matricula, Disciplina[] disciplinas) {
+        super(nome, matricula, disciplinas);
         this.valorBolsa = valorBolsa;
+    }
+    
+    @Override
+    public String getTipo() {
+        return "Aluno Bolsista";
+    }
+    
+    @Override
+    public double getMediaDisciplinas(){    //Método criado para o padrão INFORMATION EXPERT - Obtem a nota media das disciplinas cursadas pelo aluno
+        double media = 0;
+        double subMedia = 0;
+        for (Disciplina disc : getDisciplinas()) {
+            subMedia += disc.getNota();
+            media = subMedia / getDisciplinas().length;
+        }
+        return media;
     }
 }

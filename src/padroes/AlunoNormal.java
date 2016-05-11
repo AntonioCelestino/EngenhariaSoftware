@@ -6,8 +6,23 @@ Professor: Daves Martins
 package padroes;
 
 public class AlunoNormal extends Aluno{
-
-    public AlunoNormal(String nome, int matricula) {
-        super(nome, matricula);
+    public AlunoNormal(String nome, int matricula, Disciplina[] disciplinas) {
+        super(nome, matricula, disciplinas);
+    }
+    
+    @Override
+    public String getTipo() {
+        return "Aluno Normal";
+    }
+    
+    @Override
+    public double getMediaDisciplinas(){    //Método criado para o padrão INFORMATION EXPERT - Obtem a nota media das disciplinas cursadas pelo aluno
+        double media = 0;
+        double subMedia = 0;
+        for (Disciplina disc : getDisciplinas()) {
+            subMedia += disc.getNota();
+            media = subMedia / getDisciplinas().length;
+        }
+        return media;
     }
 }

@@ -1,0 +1,21 @@
+/*
+Trabalho de Engenharia de Software - 5º Período BSI - IF Sudeste MG Juiz de Fora
+Equipe: Antonio Celestino e Nathan Manera
+Professor: Daves Martins
+ */
+package padroes;
+
+//classe criada para o padrão FACTORY METHOD - Cria ou adiciona novos alunos
+public class AlunoFactory {
+    public static Aluno getAluno(String tipoAluno, double valorBolsa, String nome, int matricula, Disciplina[] disciplinas){
+        if(tipoAluno == null){
+            return null;
+        }else if(tipoAluno.equals("Aluno Bolsista")){
+            return new AlunoBolsista(valorBolsa, nome, matricula, disciplinas);
+        }else if(tipoAluno.equals("Aluno Normal")){
+            return new AlunoNormal(nome, matricula, disciplinas);
+        }else{
+            return null;
+        }
+    }
+}

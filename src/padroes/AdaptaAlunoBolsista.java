@@ -9,8 +9,8 @@ package padroes;
 public class AdaptaAlunoBolsista extends AlunoBolsista{
     private Professor professor;
 
-    public AdaptaAlunoBolsista(Professor professor, String nome, int matricula, double valorBolsa) {
-        super(nome, matricula, valorBolsa);
+    public AdaptaAlunoBolsista(Professor professor, double valorBolsa, String nome, int matricula, Disciplina[] disciplinas) {
+        super(valorBolsa, nome, matricula, disciplinas);
         this.professor = professor;
     }
     

@@ -8,10 +8,12 @@ package padroes;
 public abstract class Aluno {
     private String nome;
     private int matricula;
+    private Disciplina[] disciplinas;
     
-    Aluno(String nome, int matricula){
+    Aluno(String nome, int matricula, Disciplina[] disciplinas){
         this.nome = nome;
         this.matricula = matricula;
+        this.disciplinas = disciplinas;
     }
 
     public String getNome() {
@@ -29,4 +31,16 @@ public abstract class Aluno {
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
+
+    public Disciplina[] getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(Disciplina[] disciplinas) {
+        this.disciplinas = disciplinas;
+    }
+    
+    public abstract String getTipo();
+    
+    public abstract double getMediaDisciplinas();
 }
