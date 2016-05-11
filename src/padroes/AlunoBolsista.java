@@ -12,6 +12,14 @@ public class AlunoBolsista extends Aluno{
         super(matricula, disciplinas, nome, CPF);
         this.valorBolsa = valorBolsa;
     }
+
+    public double getValorBolsa() {
+        return valorBolsa;
+    }
+
+    public void setValorBolsa(double valorBolsa) {
+        this.valorBolsa = valorBolsa;
+    }
     
     @Override
     public String getTipo() {

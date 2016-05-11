@@ -25,7 +25,7 @@ public class TesteApp {
         alunos[0] = a1;
         alunos[1] = a2;
         Professor professor = new Professor(12345, 3000, "Jose", "222.222.222-22");
-        AdaptaAlunoBolsista a3 = new AdaptaAlunoBolsista(professor, 1000, 456321, dis, "Beltrano", "666.666.666-66");
+        AdaptaAlunoBolsista a3 = new AdaptaAlunoBolsista(professor, 400, a1.getMatricula(), a1.getDisciplinas(), a1.getNome(), a1.getCPF());
         
         // testes do FORMAT FACTORY e do INFORMATION EXPERT
         System.out.println("Media disciplinas "+a1.getNome()+": "+getMedia((Aluno) a1));
